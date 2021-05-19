@@ -1,12 +1,13 @@
-<mat-dialog-content>
+<mat-dialog-content >
   <p mat-dialog-title>{{dialogTitle}}</p>
   <mat-form-field>
     <mat-label>Title*</mat-label>
-    <input
+    <input data-cy="inputWorks"
       #inputTitle
-      matInput
-      (keydown.enter)="onConfirm()"
-      [(ngModel)]="tmpTitle">
+        matInput
+          (keydown.enter)="onConfirm()"
+            [(ngModel)]="tmpTitle"
+               >
     <button
       (click)="tmpTitle= ''" class="dialog-chapter-title"
       *ngIf="tmpTitle.trim().length > 0" aria-label="Clear"  mat-button mat-icon-button matSuffix>
@@ -64,7 +65,7 @@
     Save
   </button>
   <button (click)="onCancel()"
-          mat-raised-button>Cancel</button>
+          mat-raised-button data-cy="cancelInputChapter">Cancel</button>
 
   <button mat-button
             *ngIf="!chapter._isFinished && canDelete()"

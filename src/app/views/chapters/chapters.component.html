@@ -3,16 +3,16 @@
     <mat-toolbar class="card-header card-header-warning">
     <h4 class="card-title">Hoofdstukken om af te werken</h4>
       <div class="text-right col-6">
-        <button mat-raised-button color="accent" (click)="openAddChapterDialog()">Hoofdstuk toevoegen</button>
+        <button mat-raised-button color="accent" (click)="openAddChapterDialog()" data-cy="openChapterEditDialog">Hoofdstuk toevoegen</button>
       </div>
     </mat-toolbar>
 
   <div class="card-body table-responsive" *ngIf=" chapters && chapters.length > 0">
 
-    <table [dataSource]="dataSource" mat-table matSort>
+    <table [dataSource]="dataSource" mat-table matSort data-cy="tableIsVisible">
 
       <!--  color priority  -->
-      <ng-container matColumnDef="color">
+      <ng-container matColumnDef="color" data-cy="tableColor">
         <th *matHeaderCellDef mat-header-cell></th>
         <td class="col-color" *matCellDef="let element" [style.background-color]="getPriorityColor(element)"mat-cell></td>
       </ng-container>
@@ -24,7 +24,7 @@
       </ng-container>
 
       <!--  chapter name  -->
-      <ng-container matColumnDef="chapterName">
+      <ng-container matColumnDef="chapterName" data-cy="chapterNameColumn" data-cy="nameColumn">
         <th *matHeaderCellDef mat-header-cell mat-sort-header> Chapter name </th>
         <td class="col-name" *matCellDef="let element"
             [class.completed]="element.isFinished" class="col-title pointer" mat-cell

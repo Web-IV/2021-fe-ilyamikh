@@ -3,7 +3,7 @@
     <mat-toolbar>
       <span>Lessons</span>
       <span>
-        <button mat-icon-button (click)="openAddDialog()">
+        <button mat-icon-button (click)="openAddDialog()" data-cy="openThemeDialog">
           <mat-icon>add</mat-icon>
         </button>
     </span>
@@ -30,7 +30,7 @@
               (click)="getChaptersByTheme(theme)"
                 (mouseenter)="showEditIcon(index)"
                   (mouseleave)="showEditIcon(null)">
-            <a class="nav-link">
+            <a class="nav-link" >
               <p>{{theme.title}}</p>
               <span class="edit-category-icon-area">
                 <mat-icon *ngIf="indexMouseMove === index"

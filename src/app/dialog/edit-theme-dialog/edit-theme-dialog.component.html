@@ -7,7 +7,8 @@
       #inputTitle
         matInput
           (keydown.enter)="onConfirm()"
-            [(ngModel)]="themeTitle" />
+            [(ngModel)]="themeTitle"
+              data-cy="inputWorksTheme"/>
     <button
       *ngIf="themeTitle.trim().length > 0"
         class="dialog-chapter-title"
@@ -23,12 +24,14 @@
 <mat-dialog-actions>
 
   <div class="col-12 text-center">
-    <button mat-raised-button color="primary"
-              (click)="onConfirm()"
-                [disabled]="inputTitle.value.trim().length == 0">
-      Opslaan
-    </button>
-    <button mat-raised-button (click)="onCancel()">Cancel</button>
+
+      <button mat-raised-button color="primary"
+                (click)="onConfirm()"
+                  [disabled]="inputTitle.value.trim().length == 0">Opslaan</button>
+
+      <button mat-raised-button
+                (click)="onCancel()"
+                  data-cy="cancelInputTheme">Cancel</button>
   </div>
 
   <div class="col-12 text-center">
