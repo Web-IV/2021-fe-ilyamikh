@@ -36,15 +36,14 @@ describe('Initial responce', function () {
   })
 })
 
-//API TESTS
 describe('Mock chapter get', function () {
   it('Get request chapters returns all chapters', function () {
-    cy.server();
+    cy.server( {delay: 1000});
     cy.route({ method: 'GET', url: 'http://localhost:4200/api/chapters',
       status: 200,
       response: 'fixture:example.json'
     })
-    cy.visit('http://localhost:4200')
+    cy.request('http://localhost:4200')
     cy.get('[data-cy=tableIsVisible]').find('tr').should('have.length', 14);
   })
 })
